@@ -1,39 +1,50 @@
 import random
 import operator
 
-integer1 = random.randint(1,10)
-integer2 = random.randint(2,7)
-operators = ('+','*','-','/')
-operator = random.choice(operators)
 
-answer = 0
+maths = 0
 wrong = 0
 correct = 0
 
 
 
-
 for count in range (10):
 
-	#question = random + random
+	integer1 = random.randint(1,10)
+	integer2 = random.randint(2,15)
+	operators = ("+","*","-","/")
+	#operators = (+,*,-,/)
+	operator = random.choice(operators)
 
-	maths = int(input("{} {} {}".format(integer2, operator, integer2)))
+
+	maths = ((integer2),  (operator),  (integer1));
+	print (maths)	
+	
+
+
 	answer = int(input('write a score:'))
 
 
+	
+
 	if maths == answer:
 	
-		print("correct answer")
+		print("Correct Answer")
+
 		correct += 1
 
-	elif maths != answer:
 
-		print("wrong answer")
+	else: 
+
+		print("Wrong Answer")
+
 		wrong += 1
 
-	#scores.append(score)
 
-	print(correct)
-	print(wrong)
+
+print(" ")
+
+print("correct = ", + correct)
+print("wrong = ", + wrong)
 
 

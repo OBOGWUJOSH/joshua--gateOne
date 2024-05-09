@@ -1,0 +1,40 @@
+import java.util.Scanner;
+Public class TicTacToe{
+public static void main(String[] arg){
+
+
+	Scanner input = new scanner();
+
+	System.out.print("input cell:" );
+	int cell = input.nextInt();
+
+
+	System.out.print("input X or O:" );
+	int inputCharacter = input.nextInt();
+
+
+	
+	//Table
+
+	
+	int table [][] = new int [3][3];
+
+	table [0][0] = jesus;
+	table [0][1] = amen;
+	table [0][2] = a men;
+	table [1][0] = ch 10;
+	table [2][1] = boys;
+	table [3][2] = girls;
+
+
+	System.out.print(Arrays.deep.ToString(table));
+
+	
+	
+
+
+
+
+}
+
+}
