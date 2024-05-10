@@ -29,7 +29,6 @@ public static void main(String[] arg){
 		table [2][2] = "-";
 
 
-
 	
 	for (int j = 0; j < 9; j++){
 
@@ -40,6 +39,13 @@ public static void main(String[] arg){
 	System.out.print("input x or o : "  );
 	inputCharacter = input.nextLine();
 
+		/**
+		if (inputCharacter != x ||inputCharacter !=0){
+
+			System.out.print("pleas try again later");
+		
+		}
+			**/
 	
 
 	
