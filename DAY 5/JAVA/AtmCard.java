@@ -1,13 +1,19 @@
 
 import java.util.Scanner;
 public class AtmCard{
-public static void main(String[] arg){
+public static void main(String... arg){
 
 
 	Scanner input = new Scanner(System.in);
 
-	System.out.println("Enter atm card number :" );
+	System.out.printf("Enter atm card number :" );
 	String atmCardNumber = input.nextLine();
+
+	/**
+	atmCardNumber.index(4) = ("-");
+	atmCardNumber.index(9) = ("-");
+	atmCardNumber.index(14) = ("-");
+	**/
 
 
 	System.out.println(cardValidator(atmCardNumber));
@@ -16,27 +22,33 @@ public static void main(String[] arg){
 
 }
 
-	public static String cardValidator (String ... atmCardNumber){
+	public static boolean cardValidator(String atmCardNumber){
 
+		
 		int cardlength = atmCardNumber.length();
 
-		String firstindex = Character.toString(atmCardNumber.charAt(0));
+		char firstindex = atmCardNumber.charAt(0);
+		
+		char forthindex = atmCardNumber.charAt(4);
+		
+		char ninethindex = atmCardNumber.charAt(9);
+
+		char fourteentindex = atmCardNumber.charAt(14);
 
 
-		if ((firstindex.equals("4") || firstindex.equals("5") || firstindex.equals("6")) && (cardlength == 19)){
+
+		if ((firstindex == ('4') || firstindex == ('5') || firstindex == ('6')) && (cardlength == 19) && (forthindex == '-' || ninethindex == '-' || fourteentindex == '-')){
+		return true;
 
 
-		return "Valid Card!!!!";
-
-
-		}else return "False Invalid card";
+		}else return false;
 
 		
 
 
 	}
 
-
+  
 
 
 
