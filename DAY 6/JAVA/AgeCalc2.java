@@ -10,15 +10,6 @@ public static void main(String[] arg){
 
 	Scanner input = new Scanner(System.in);
 
-	LocalDateTime todaysDateAndTime = LocalDateTime.now();
-	
-
-	DateTimeFormatter myDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-	String myFirstTimeAndDateFormat = todaysDateAndTime.format(myDateFormat);
-
-
-	
 
 	String TodaysDate = new String();
 
@@ -30,22 +21,51 @@ public static void main(String[] arg){
 
 	
 
+	
+	//System.out.print(periodBetween.getYears());
+
+	System.out.println(ageCalcFunction(dateOfBirth));
+
+
+	
+}
+
+public static String ageCalcFunction (String dateOfBirth){
+
+
+
+
+	
+	LocalDateTime todaysDateAndTime = LocalDateTime.now();
+	
+
+	DateTimeFormatter myDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+	String myFirstTimeAndDateFormat = todaysDateAndTime.format(myDateFormat);
+
+
 	LocalDate inputDob = LocalDate.parse(dateOfBirth,myDateFormat);
 
 
 	Period periodBetween = Period.between(inputDob, todaysDateAndTime.toLocalDate());
 
 
-	System.out.print(periodBetween.getYears());
-		
+	int age = periodBetween.getYears();
+
+	int months = periodBetween.getMonths();
 
 
 
+	String total = "age :"  +  age + "\n" + "months :" + months ;
 
-
-
+	//return (age, (months));
+	return total;
 
 
 }
+
+
+
+
 
 }
