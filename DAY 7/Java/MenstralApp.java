@@ -34,15 +34,9 @@ public static void main(String[] arg){
 	
 
 	LocalDate todaysDate = LocalDate.now();
-	//LocalDate localDate = LocalDate.format("dd/MM/yyyy");
 
 
 	DateTimeFormatter myDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	//DateTimeFormatter myDateFormat2 = new DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-
-
-
 	String myFirstTimeAndDateFormat = todaysDate.format(myDateFormat);
 
 
@@ -59,7 +53,6 @@ public static void main(String[] arg){
 
 
 
-
 	LocalDate nextIregularMenstralDatePlus = yourLastPeriodFormated.plusDays(28).plusDays(randommNumbers7);
 	LocalDate nextIregularMenstralDateMinus = yourLastPeriodFormated.plusDays(28).minusDays(randommNumbers7);
 
@@ -68,14 +61,6 @@ public static void main(String[] arg){
 
 	LocalDate nextMenstralDatePlus10Days = yourLastPeriodFormated.plusDays(10);
 	LocalDate nextMenstralDatePlus15Days = yourLastPeriodFormated.plusDays(15);
-	
-
-
-
-	//Period periodBetween = Period.between(inputDateOfBirth, todaysDate.toLocalDate());
-
-	//int days = periodBetween.getDays();
-
 
 
 
