@@ -23,21 +23,18 @@ public static void main(String[] arg){
 
 
 
-
-
-
-	System.out.print("Enter date your last circle Ended (Day/Month/Year) :  ");
+	System.out.print("Enter the first date of your period (Day/Month/Year) : ");
 	String yourLastPeriod = input.nextLine();
 
 
 
-	//System.out.printf("how long did the circle last:  ");
-	//String forHowLong = input.nextLine();
+	System.out.printf("how long did was your last period last: ") ;
+	int forHowLong = input.nextInt();
 
 	
 
 	LocalDate todaysDate = LocalDate.now();
-	LocalDate localDate = LocalDate.format("dd/MM/yyyy");
+	//LocalDate localDate = LocalDate.format("dd/MM/yyyy");
 
 
 	DateTimeFormatter myDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -45,11 +42,15 @@ public static void main(String[] arg){
 
 
 
+
 	String myFirstTimeAndDateFormat = todaysDate.format(myDateFormat);
 
 
 	
+
 	LocalDate yourLastPeriodFormated = LocalDate.parse(yourLastPeriod,myDateFormat);
+
+	LocalDate periodDays = yourLastPeriodFormated.plusDays(forHowLong);
 
 	LocalDate safePeriod = yourLastPeriodFormated.plusDays(7);
 
@@ -71,7 +72,6 @@ public static void main(String[] arg){
 
 
 
-
 	//Period periodBetween = Period.between(inputDateOfBirth, todaysDate.toLocalDate());
 
 	//int days = periodBetween.getDays();
@@ -84,10 +84,10 @@ public static void main(String[] arg){
 	System.out.println(yourLastPeriodFormated);
 
 
-	System.out.println("Average Date for Next regular menstral flow should starts on " + nextMenstralDate);
-	System.out.println("And If irregular,flow Should fall between " + nextIregularMenstralDateMinus + " to " + nextIregularMenstralDatePlus);
-	System.out.println("Your fertility Period should be between " +  nextMenstralDatePlus10Days + " to " + nextMenstralDatePlus15Days);
-	System.out.println("Your Safest period is between  " +  yourLastPeriodFormated + " to " + safePeriod);
+	System.out.println("Average Date for Next regular menstral flow should end " + nextMenstralDate.format(myDateFormat) );
+	System.out.println("And If irregular,flow Should fall between " + nextIregularMenstralDateMinus.format(myDateFormat) + " to " + nextIregularMenstralDatePlus.format(myDateFormat) );
+	System.out.println("Your fertility Period should be between " +  nextMenstralDatePlus10Days.format(myDateFormat) + " to " + nextMenstralDatePlus15Days.format(myDateFormat) );
+	System.out.println("Your Safest period is between  " +  yourLastPeriodFormated.format(myDateFormat) + " to " + safePeriod.format(myDateFormat) );
 
 
 
