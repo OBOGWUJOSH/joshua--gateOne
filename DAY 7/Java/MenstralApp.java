@@ -20,7 +20,7 @@ public static void main(String[] arg){
 
 
 
-	System.out.printf("Enter date your flow Ended (Day/Month/Year) :  ");
+	System.out.print("Enter date your flow Ended (Day/Month/Year) :  ");
 	String yourLastPeriod = input.nextLine();
 
 
@@ -29,10 +29,8 @@ public static void main(String[] arg){
 	//String forHowLong = input.nextLine();
 
 	
-	
 
 	LocalDateTime todaysDate = LocalDateTime.now();
-	
 	DateTimeFormatter myDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	String myFirstTimeAndDateFormat = todaysDate.format(myDateFormat);
@@ -44,8 +42,20 @@ public static void main(String[] arg){
 
 
 	LocalDate nextMenstralDate = inputDateOfBirth.plusDays(28);
+
+
 	LocalDate nextIregularMenstralDate = inputDateOfBirth.plusDays(28).plusDays(randommNumbers);
 	LocalDate nextIregularMenstralDateMinus = inputDateOfBirth.plusDays(28).minusDays(randommNumbers);
+
+	LocalDate days28PlusRandom = LocalDate.parse(nextIregularMenstralDate,myDateFormat);
+	LocalDate days28minusRandom = LocalDate.parse(nextIregularMenstralDateMinus,myDateFormat);
+
+
+
+	LocalDate nextMenstralDatePlus10Days = inputDateOfBirth.plusDays(10);
+	LocalDate nextMenstralDatePlus15Days = inputDateOfBirth.plusDays(15);
+	
+
 
 
 
@@ -56,9 +66,10 @@ public static void main(String[] arg){
 
 
 
+
 	System.out.println("Next regular menstral flow is on " + nextMenstralDate);
-	System.out.println("Next irregular menstral flow minus 7 days is on " + nextIregularMenstralDate + " or " + nextIregularMenstralDateMinus);
-	System.out.println("Next irregular menstral flow minus 7 days is on " + );
+	System.out.println("Next irregular menstral flow is on " + days28minusRandom + " or " + days28PlusRandom);
+	System.out.println("Your fertility Period is from  " +  nextMenstralDatePlus10Days + " to " + nextMenstralDatePlus15Days);
 
 
 
