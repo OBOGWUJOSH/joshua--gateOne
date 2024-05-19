@@ -1,13 +1,14 @@
 
 import java.util.Scanner;
 public  class BankeBank{
-
 public static void main(String[] arg){
+
 
 	menu();
 
-
 }
+
+Arraylist <String> name = new Arraylist<String>name;
 
 
 public static void menu(){
@@ -47,10 +48,7 @@ case 7: changePin();
 break;
 case 8: exitApp();
 break;
-default -> System.out.println("Syntex Error");
-
-
-
+default -> System.out.println("Error");
 
 }
 }
@@ -59,27 +57,40 @@ default -> System.out.println("Syntex Error");
 
 public static void openAccount(){
 
-System.out.print("what type of account do you want to open :");
-
+System.out.print("what type of account do you want to open(savings or current):");
+System.out.print("First Name: ");
+System.out.print("Last Name: ");
+System.out.print("Age: ");
+System.out.print("Enter a new Pin: ");
 
 menu();
 }
+
 
 
 public static void closeAccount(){
-
-System.out.print("hello");
+System.out.print(" ")
+System.out.println("Enter your accountname:" );
+System.out.print("Enter your pin:");
+System.out.print("Reason for cloing the account: ");
+System.out.print(" ")
 
 menu();
 }
+
+
 
 
 public static void depositeMoney(){
 
-System.out.print("accountBalance - deposited amount");
+System.out.print(" ")
+System.out.print("Enter account number to deposite into: ");
+System.out.print("how much do you want to deposite: ")
+System.out.print(" ");
 
 menu();
 }
+
 
 
 public static void withdrawMoney(){
@@ -88,6 +99,7 @@ System.out.print("accountBalance - withdrawnamount");
 
 menu();
 }
+
 
 
 public static void accountBalance(){

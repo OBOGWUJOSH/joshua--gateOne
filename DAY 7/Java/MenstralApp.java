@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import java.util.Scanner;
-public class MenstralApp{
+public class MensturalApp{
 public static void main(String[] arg){
 
 
@@ -22,15 +22,17 @@ public static void main(String[] arg){
 
 
 
-
+	System.out.println(" ");
 	System.out.print("Enter the first date of your Circle (Day/Month/Year) : ");
 	String yourLastPeriod = input.nextLine();
 	System.out.println(" ");
 
 
 
-	System.out.printf("how long was your last period: ") ;
+	System.out.printf("how long was your last circle: ") ;
 	int forHowLong = input.nextInt();
+	System.out.println(" ");
+
 
 	
 
@@ -47,22 +49,22 @@ public static void main(String[] arg){
 
 	LocalDate periodDays = yourLastPeriodFormated.plusDays(forHowLong);
 
-	LocalDate safePeriod = yourLastPeriodFormated.plusDays(7);
+	//LocalDate safePeriod = yourLastPeriodFormated.plusDays(7);
 
-	LocalDate nextMenstralDate = yourLastPeriodFormated.plusDays(28);
-
-
-	LocalDate ovulationDate = nextMenstralDate.minusDays(14);
+	//LocalDate nextmensturalDate = yourLastPeriodFormated.plusDays(28);
 
 
+	LocalDate ovulationDate = nextmensturalDate.minusDays(14);
 
-	LocalDate nextIregularMenstralDatePlus = nextMenstralDate.plusDays(randommNumbers7);
-	LocalDate nextIregularMenstralDateMinus = nextMenstralDate.minusDays(randommNumbers7);
+
+
+	LocalDate nextIregularmensturalDatePlus = periodDays.plusDays(randommNumbers7);
+	LocalDate nextIregularmensturalDateMinus = periodDays.minusDays(randommNumbers7);
 
 	
 
-	LocalDate nextMenstralDatePlus10Days = yourLastPeriodFormated.plusDays(10);
-	LocalDate nextMenstralDatePlus15Days = yourLastPeriodFormated.plusDays(15);
+	LocalDate nextmensturalDatePlus10Days = yourLastPeriodFormated.plusDays(10);
+	LocalDate nextmensturalDatePlus15Days = yourLastPeriodFormated.plusDays(15);
 
 
 
@@ -71,19 +73,16 @@ public static void main(String[] arg){
 	//System.out.println(yourLastPeriodFormated);
 
 
-	System.out.println("Average Date For Next Regular Menstral Flow Should Start " + nextMenstralDate.format(myDateFormat) );
+	System.out.println("Average Date For Next Regular menstural Flow Should Start " + nextmensturalDate.format(myDateFormat) );
 	System.out.println(" ");
 	System.out.println("Your Next Ovulation Date " + ovulationDate.format(myDateFormat) );
 	System.out.println(" ");
-	System.out.println("And If irregular,flow Should fall between " + nextIregularMenstralDateMinus.format(myDateFormat) + " to " + nextIregularMenstralDatePlus.format(myDateFormat) );
+	System.out.println("And If irregular,flow Should fall between " + nextIregularmensturalDateMinus.format(myDateFormat) + " to " + nextIregularmensturalDatePlus.format(myDateFormat) );
 	System.out.println(" ");
-	System.out.println("Your fertility Period should be between " +  nextMenstralDatePlus10Days.format(myDateFormat) + " to " + nextMenstralDatePlus15Days.format(myDateFormat) );
+	System.out.println("Your fertility Period should be between " +  nextmensturalDatePlus10Days.format(myDateFormat) + " to " + nextmensturalDatePlus15Days.format(myDateFormat) );
 	System.out.println(" ");
 	System.out.println("Your Safest period is between  " +  yourLastPeriodFormated.format(myDateFormat) + " to " + safePeriod.format(myDateFormat) );
 	System.out.println(" ");
-
-
-
 
 
 
