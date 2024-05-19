@@ -144,7 +144,7 @@ LocalDate fertilityPeriodMinusIrregularities = ovulationDate.minusDays(daysAdded
 
 
 print()
-print(f"If Your next menstrual flow is Regular, \n \n your next menstrual circle should start {period_next_date.strftime(my_date_format)}")
+print(f"If Your next menstrual flow is Regular, \n \nyour next menstrual circle should start {period_next_date.strftime(my_date_format)}")
 print()
 print(f"Your Next Ovulation Date Should be on {ovulation_date.strftime(my_date_format)}")
 print()
