@@ -1,13 +1,14 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
-public  class BankeBank{
+import java.util.Arrays;
+public class BankeBank{
 
 
 
 static ArrayList<String[]> account = new ArrayList<>();
 
-//ArrayList<String> list = new ArrayList<String>();
+static String[] list = new String[6];
 
 static Scanner input = new Scanner(System.in);
 
@@ -53,6 +54,8 @@ System.out.println(" ");
 
 int inputt = input2.nextInt();
 
+
+
 switch(inputt){
 
 case 1: openAccount();
@@ -85,17 +88,27 @@ default: System.out.println("Error");
 public static void openAccount(){
 
 
-System.out.println(" ");
+	System.out.println(" ");
 
-System.out.println("Account Type(savings or current):");
-String accountType = input.nextLine();
+	System.out.println("Account Type(savings or current):" );
+	String accountType = input.nextLine();
+
+
+
+
 /**
-if ((accountType = "SAVINGS") || (accountType = "CURRENT")){
+
+if ((accountType.equals "SAVINGS") || (accountType.equals"CURRENT")){
+
 	accountType.equalsIgnoreCase("SAVINGS");
 	accountType.equalsIgnoreCase("CURRENT");
-	}else	
+	}else
 	System.out.println("Wrong Account Type");
+
 **/
+
+
+
 
 	System.out.println("First Name: ");
 	String firstName = input.nextLine();
@@ -114,12 +127,29 @@ if ((accountType = "SAVINGS") || (accountType = "CURRENT")){
 	System.out.println("Create a new Pin: ");	//create conditions to make the pin be the key access into 	the account 
 	String createdPin = input.nextLine();
 
-	//}else {System.out.println("Not an account type");};
 
 
-account.add(new String[] {accountType, firstName, lastName, age, createdPin, accountNumber});
 
-System.out.println(" ");
+
+//}else {System.out.println("Not an account type");};
+
+
+
+	list = new String [] {accountType, firstName, lastName, age, createdPin, accountNumber};
+	account.add(list);
+
+
+	System.out.println(" ");
+
+	int arrayListSize = account.size();
+
+	for (int count = 0; count < arrayListSize; count++){
+
+    	System.out.println(Arrays.toString(account.get(count)));
+	
+	}
+
+
 
 
 menu();
@@ -217,6 +247,7 @@ System.out.println(" ");
 menu();
 
 }
+
 
 
 
