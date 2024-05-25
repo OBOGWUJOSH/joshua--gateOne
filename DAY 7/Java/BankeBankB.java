@@ -2,13 +2,15 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-public class BankeBank{
+public class BankeBankB{
 
 
 
-static ArrayList<String[]> account = new ArrayList<>();
-
-static String[] listString = new String[6];
+static ArrayList<String> account = new ArrayList<String>();
+static ArrayList<String> firstNameArr = new ArrayList<String>();
+static ArrayList<String> lastNameArr = new ArrayList<String>();
+static ArrayList<String> accountNumberArr = new ArrayList<String>();
+static ArrayList<String> pinArr = new ArrayList<String>();
 
 
 
@@ -117,22 +119,27 @@ public static void openAccount(){
 	String createdPin = input.nextLine();
 
 
-
-
-
-	listString = new String [] {accountType, firstName, lastName, age, createdPin, accountNumber};
-	account.add(listString);
-
-
-	System.out.println(" ");
-
-	int arrayListSize = account.size();
-
-	for (int count = 0; count < arrayListSize; count++){
-
-    	System.out.println(Arrays.toString(account.get(count)));
+	account.add(accountType);
+    	firstNameArr.add(firstName);
+	lastNameArr.add(lastName);
+    	lastNameArr.add(age);
+    	accountNumberArr.add(accountNumber);
+    	pinArr.add(createdPin);
 	
+
+
+	
+	System.out.println(" ");
+	for (int count = 0; count < accountNumberArr.size(); count++){
+
+    	System.out.println(account.get(count));
+    	System.out.println(firstNameArr.get(count));
+    	System.out.println(lastNameArr.get(count));
+    	System.out.println(accountNumberArr.get(count));
+    	System.out.println(pinArr.get(count));
+	System.out.println(" ");
 	}
+	
 
 
 
@@ -163,23 +170,17 @@ System.out.println("Reason for cloing the account: ");
 String reasonToCloseAccount = input.nextLine();
 
 
-int requiredIndexToRemove = account.indexOf(accountNumber);
+int requiredIndexToRemove = accountNumberArr.indexOf(accountNumber);
 
-int arrayLength =  listString.length;
+for (int counter = 0; counter < accountNumberArr.size(); counter++){
 
-for (String[] listString : account){
-
-
-for (int i = 0; i < account.size(); i++) {
-    String[] listString = account.get(i);
-    	if (Arrays.asList(listString).contains(accountNumber)) {
-       		account.remove(i);
-        break;
-    }
-}
-
+    	System.out.println(account.remove(requiredIndexToRemove));
+    	System.out.println(firstNameArr.remove(requiredIndexToRemove));
+    	System.out.println(lastNameArr.remove(requiredIndexToRemove));
+    	System.out.println(accountNumberArr.remove(requiredIndexToRemove));
+    	System.out.println(pinArr.remove(requiredIndexToRemove));
+	
 	}
-
 
 menu();
 
@@ -199,6 +200,18 @@ System.out.println("how much do you want to deposite: ");
 String depositedAmount = input.nextLine();
 
 System.out.println(" ");
+
+
+for (int counter = 0; counter < accountNumberArr.size(); counter++){
+
+    	System.out.println(account.remove(counter));
+    	System.out.println(firstNameArr.remove(counter));
+    	System.out.println(lastNameArr.remove(counter));
+    	System.out.println(accountNumberArr.remove(counter));
+    	System.out.println(pinArr.remove(counter));
+	
+	}
+
 
 menu();
 
