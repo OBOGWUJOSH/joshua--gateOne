@@ -10,6 +10,7 @@ static ArrayList<String> account = new ArrayList<String>();
 static ArrayList<String> firstNameArr = new ArrayList<String>();
 static ArrayList<String> lastNameArr = new ArrayList<String>();
 static ArrayList<String> accountNumberArr = new ArrayList<String>();
+static ArrayList<String> accountBalanceArr = new ArrayList<String>();
 static ArrayList<String> pinArr = new ArrayList<String>();
 
 
@@ -45,7 +46,7 @@ Scanner input2 = new Scanner(System.in);
 	3. -> Deposite Money.
 	4. -> Withdraw money.
 	5. -> account balance.
-	6. -> Transfer to Other Banks.
+	6. -> View All Accounts.
 	7. -> Change Pin.
 	8. -> Exit App.
 
@@ -74,7 +75,7 @@ case 4: withdrawMoney();
 break;
 case 5: accountBalance();
 break;
-case 6: transferToOtherBanks();
+case 6: viewAllAccounts();
 break;
 case 7: changePin();
 break;
@@ -107,23 +108,23 @@ public static void openAccount(){
 	System.out.println("Last Name: ");
 	String lastName = input.nextLine();
 
-	System.out.println("Age: ");
-	String age = input.nextLine();
-
-
 	System.out.println("your new account number is: ");//creata a random of length of numbers (5) (01 + 5 random numbers)
 	String accountNumber = input.nextLine();
 
 
+	System.out.println("initial deposite: ");
+	double initialDeposite = input.nextDouble();
+
+
 	System.out.println("Create a new Pin: ");//create conditions to make the pin be the key access into the account 
-	String createdPin = input.nextLine();
+	String createdPin = input.nextInt();
 
 
 	account.add(accountType);
     	firstNameArr.add(firstName);
 	lastNameArr.add(lastName);
-    	lastNameArr.add(age);
     	accountNumberArr.add(accountNumber);
+	accountBalanceArr.add(accountBalance);
     	pinArr.add(createdPin);
 	
 
@@ -136,6 +137,7 @@ public static void openAccount(){
     	System.out.println(firstNameArr.get(count));
     	System.out.println(lastNameArr.get(count));
     	System.out.println(accountNumberArr.get(count));
+    	System.out.println(accountBalanceArr.get(count));
     	System.out.println(pinArr.get(count));
 	System.out.println(" ");
 	}
@@ -178,6 +180,7 @@ for (int counter = 0; counter < accountNumberArr.size(); counter++){
     	System.out.println(firstNameArr.remove(requiredIndexToRemove));
     	System.out.println(lastNameArr.remove(requiredIndexToRemove));
     	System.out.println(accountNumberArr.remove(requiredIndexToRemove));
+    	System.out.println(accountBalanceArr.remove(requiredIndexToRemove));
     	System.out.println(pinArr.remove(requiredIndexToRemove));
 	
 	}
@@ -193,13 +196,31 @@ public static void depositeMoney(){
 
 System.out.println(" ");
 
+System.out.println("Enter Account Number: ");
+String accountNumber = input.nextLine();
+
+int AccountsIndexToTransferFrom = accountNumberArr.indexOf(accountNumber);
+
+
 System.out.println("Enter account number to deposite into: ");
 String accountToDepositeInto = input.nextLine();
+
+int AccountsIndexToTransferTo = accountNumberArr.indexOf(accountToDepositeInto);
+
 
 System.out.println("how much do you want to deposite: ");
 String depositedAmount = input.nextLine();
 
+System.out.println("Enter your pin: ");
+String pinInput = input.nextLine();
+
 System.out.println(" ");
+
+
+
+
+
+
 
 
 for (int counter = 0; counter < accountNumberArr.size(); counter++){
@@ -221,13 +242,16 @@ menu();
 
 public static void withdrawMoney(){
 
+System.out.println("Enter Account Number: ");
+String accountNumber = input.nextLine();
+
 System.out.println("Enter amount you want to withdraw: ");
 double withdrawAmount = input.nextDouble();
 
 double amountWithdrawn = totalAccountBalance - withdrawAmount;
 System.out.println(withdrawAmount);
 
-System.out.println(" ");
+System.out.println("service unavailable ");
 
 menu();
 
@@ -239,7 +263,13 @@ public static void accountBalance(){
 
 double totalAccountBalance = 0.00;
 
-System.out.println("your total account balance is: " + totalAccountBalance );
+System.out.println("Enter Account Number: ");
+String accountNumber = input.nextLine();
+
+System.out.println("Enter your pin: ");
+String pinInput = input.nextLine();
+
+System.out.println("your total account balance is: ");
 
 System.out.println(" ");
 
@@ -251,19 +281,20 @@ menu();
 
 
 
-public static void transferToOtherBanks(){
+public static void viewAllAccounts(){
 
 System.out.println(" ");
 
-System.out.print("Enter Name Of Bank: ");
-String nameOfBank = input.nextLine();
+	for (int count = 0; count < accountNumberArr.size(); count++){
 
-System.out.print("Enter Amount to be Transfered : ");
-int amountToTransferInterSwitch = input.nextInt();
-
-double balance = totalAccountBalance - amountToTransferInterSwitch;
-String bankbalance = input.nextLine();
-
+    	System.out.println(account.get(count));
+    	System.out.println(firstNameArr.get(count));
+    	System.out.println(lastNameArr.get(count));
+    	System.out.println(accountNumberArr.get(count));
+    	System.out.println(pinArr.get(count));
+	System.out.println(" ");
+	}
+	
 System.out.println(" ");
 
 menu();
