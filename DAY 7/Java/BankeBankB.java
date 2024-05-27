@@ -6,11 +6,10 @@ public class BankeBankB{
 
 
 
-static ArrayList<String> account = new ArrayList<String>();
 static ArrayList<String> firstNameArr = new ArrayList<String>();
 static ArrayList<String> lastNameArr = new ArrayList<String>();
 static ArrayList<String> accountNumberArr = new ArrayList<String>();
-static ArrayList<String> accountBalanceArr = new ArrayList<String>();
+static ArrayList<Integer> accountBalanceArr = new ArrayList<>();
 static ArrayList<String> pinArr = new ArrayList<String>();
 
 
@@ -97,10 +96,6 @@ public static void openAccount(){
 
 	System.out.println(" ");
 
-	System.out.println("Account Type(savings or current):" );
-	String accountType = input.nextLine();
-
-
 
 	System.out.println("First Name: ");
 	String firstName = input.nextLine();
@@ -113,18 +108,17 @@ public static void openAccount(){
 
 
 	System.out.println("initial deposite: ");
-	double initialDeposite = input.nextDouble();
+	int initialDeposite = input.nextInt();
 
 
 	System.out.println("Create a new Pin: ");//create conditions to make the pin be the key access into the account 
-	String createdPin = input.nextInt();
+	String createdPin = input.nextLine();
 
 
-	account.add(accountType);
     	firstNameArr.add(firstName);
 	lastNameArr.add(lastName);
     	accountNumberArr.add(accountNumber);
-	accountBalanceArr.add(accountBalance);
+	accountBalanceArr.add(initialDeposite);
     	pinArr.add(createdPin);
 	
 
@@ -133,7 +127,6 @@ public static void openAccount(){
 	System.out.println(" ");
 	for (int count = 0; count < accountNumberArr.size(); count++){
 
-    	System.out.println(account.get(count));
     	System.out.println(firstNameArr.get(count));
     	System.out.println(lastNameArr.get(count));
     	System.out.println(accountNumberArr.get(count));
@@ -176,7 +169,7 @@ int requiredIndexToRemove = accountNumberArr.indexOf(accountNumber);
 
 for (int counter = 0; counter < accountNumberArr.size(); counter++){
 
-    	System.out.println(account.remove(requiredIndexToRemove));
+
     	System.out.println(firstNameArr.remove(requiredIndexToRemove));
     	System.out.println(lastNameArr.remove(requiredIndexToRemove));
     	System.out.println(accountNumberArr.remove(requiredIndexToRemove));
@@ -197,19 +190,49 @@ public static void depositeMoney(){
 System.out.println(" ");
 
 System.out.println("Enter Account Number: ");
-String accountNumber = input.nextLine();
+String accountNumberDebit = input.nextLine();
 
-int AccountsIndexToTransferFrom = accountNumberArr.indexOf(accountNumber);
+int accountsIndexToTransferFrom = accountNumberArr.indexOf(accountNumberDebit);
+int debitAccountIndex = accountsIndexToTransferFrom + 1;
 
 
 System.out.println("Enter account number to deposite into: ");
 String accountToDepositeInto = input.nextLine();
 
+
 int AccountsIndexToTransferTo = accountNumberArr.indexOf(accountToDepositeInto);
+int creditAccountIndex = AccountsIndexToTransferTo + 1;
 
 
 System.out.println("how much do you want to deposite: ");
-String depositedAmount = input.nextLine();
+int depositedAmount = input.nextInt();
+
+int count = 0;
+
+for (int counter = 0; counter < accountNumberArr.size(); counter++){
+
+	int debitAlert = debitAccountIndex - depositedAmount;
+
+
+	if (accountNumberArr.get(counter).equals(accountNumberDebit)){
+
+		 accountBalanceArr.set(counter, accountBalanceArr.get(counter) - accountBalanceArr.get(debitAlert));
+
+		}
+
+
+	int creditAlert = debitAccountIndex + depositedAmount;
+
+
+	if (accountNumberArr.get(counter).equals(accountToDepositeInto)){
+
+		 accountBalanceArr.set(counter, accountBalanceArr.get(creditAlert));
+
+		}else System.out.println("Wrong banking information please try again");
+
+}
+
+
 
 System.out.println("Enter your pin: ");
 String pinInput = input.nextLine();
@@ -221,14 +244,12 @@ System.out.println(" ");
 
 
 
-
-
 for (int counter = 0; counter < accountNumberArr.size(); counter++){
 
-    	System.out.println(account.remove(counter));
-    	System.out.println(firstNameArr.remove(counter));
-    	System.out.println(lastNameArr.remove(counter));
-    	System.out.println(accountNumberArr.remove(counter));
+
+    	System.out.println(firstNameArr.get(counter));
+    	System.out.println(lastNameArr.get(counter));
+    	System.out.println(accountNumberArr.get(counter));
     	System.out.println(pinArr.remove(counter));
 	
 	}
@@ -261,10 +282,12 @@ menu();
 
 public static void accountBalance(){
 
-double totalAccountBalance = 0.00;
-
 System.out.println("Enter Account Number: ");
 String accountNumber = input.nextLine();
+
+
+
+
 
 System.out.println("Enter your pin: ");
 String pinInput = input.nextLine();
@@ -287,7 +310,7 @@ System.out.println(" ");
 
 	for (int count = 0; count < accountNumberArr.size(); count++){
 
-    	System.out.println(account.get(count));
+
     	System.out.println(firstNameArr.get(count));
     	System.out.println(lastNameArr.get(count));
     	System.out.println(accountNumberArr.get(count));
@@ -315,7 +338,7 @@ String oldPin = input.nextLine();
 System.out.println("Enter New pin: ");
 String newPin = input.nextLine();
 
-System.out.println("Enter New pin again for confirmation: "); // if ton    condition the old and new pin
+System.out.println("Enter New pin again for confirmation: "); //if conditions: for the old and new pin
 String newPinConfirmation = input.nextLine();
 
 System.out.println(" ");
